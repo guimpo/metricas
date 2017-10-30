@@ -1,5 +1,5 @@
 module.exports = {
-  database: "mydb",
+  database: "sumula",
   username: "root",
   password: "root",
   params: {
