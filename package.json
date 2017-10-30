@@ -1,0 +1,18 @@
+{
+  "name": "sumula_app",
+  "version": "1.0.0",
+  "description": "metricas_e_estimativas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paulo Nakaima",
+  "license": "ISC",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "express": "^4.16.2",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.20.1"
+  }
+}
