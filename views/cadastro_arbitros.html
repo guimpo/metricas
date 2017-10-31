@@ -4,14 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Cadastro árbitros</title>
+  <style type="text/css">
+    .conteiner {
+      width: 40%;
+
+      margin-left: 40%;
+    }
+    .cep {
+      width: 50%;
+    }
+    header {
+      background-color: grey;
+      height: 50px;
+    }
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      position: relative;
+      bottom: -600px;
+    }
+    footer div p {
+      position: relative;
+      left: -20%;
+    }
+  </style>
 </head>
 <body>
-  <h1>Cadastro árbitros</h1>
+  <header class="navbar navbar-inverse"> 
+      
+  </header>
   <div style="width: 80%; heigth: 100%">
-    <form>
-      <div class="form-group">
+    <div class="conteiner col-sm-8">
+     
+      <h1>Cadastro árbitros</h1>
+      <hr>  
+      <div class="form-group" method="post" action="../routes/cidades.js">
         <label for="arbitro">nome :</label>
         <input name="nome" type="text" class="form-control" id="arbitro">
       </div>
@@ -19,24 +49,32 @@
         <label for="rua">rua :</label>
         <input name="rua" type="text" class="form-control" id="rua">
       </div>
-      <div class="form-group">
-        <label for="numero">numero :</label>
-        <input name="numero" type="text" class="form-control" id="numero">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label for="numero">numero :</label>
+          <input name="numero" type="text" class="form-control" id="numero">
+        </div>
+        <div class="form-group col-sm-8">
+          <label for="bairro">bairro :</label>
+          <input name="bairro" type="text" class="form-control" id="bairro">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="bairro">bairro :</label>
-        <input name="bairro" type="text" class="form-control" id="bairro">
-      </div>
-      <div class="form-group">
+      <div class="form-group cep">
         <label for="cep">cep :</label>
-        <input name="cep" type="text" class="form-control" id="cep">
+        <input name="cep" type="number" class="form-control" id="cep">
       </div>
       <div class="form-group">
-        <label for="codigoCid">codigoCid :</label>
-        <input name="codigoCid" type="number" class="form-control" id="codigoCid">
+        <label for="codigoCid">Cidade :</label>
+        <select name="codCidade" class="form-control">
+            <option value="cidade1">drop down list em node.js</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </div>
+      <hr>  
+      <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
+    </div>
+  </div> 
+  <footer class="conteiner-fluid">  
+      <div><p>Metricas de software</p></div>
+  </footer>
 </body>
 </html>
