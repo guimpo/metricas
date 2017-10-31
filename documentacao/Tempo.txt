@@ -8,5 +8,5 @@ Tempo para implementar telas de cadastro e backend
 para implementar um ponto por função minha equipe leva xx minutos
 na linguagem javascript
 a equipe possui x integrantes.
-
+a implementação possui xx linha de código.
 
