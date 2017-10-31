@@ -8,13 +8,11 @@
   <title>Cadastro árbitros</title>
   <style type="text/css">
     .conteiner {
-      width: 40%;
+      width: 30%;
 
-      margin-left: 40%;
+      margin-left: 35%;
     }
-    .cep {
-      width: 50%;
-    }
+   
     header {
       background-color: grey;
       height: 50px;
@@ -24,11 +22,10 @@
       color: white;
       padding: 15px;
       position: relative;
-      bottom: -600px;
+      bottom: -450px;
     }
-    footer div p {
-      position: relative;
-      left: -20%;
+    .btn {
+      margin-top: 10%;
     }
   </style>
 </head>
@@ -36,45 +33,46 @@
   <header class="navbar navbar-inverse"> 
       
   </header>
-  <div style="width: 80%; heigth: 100%">
-    <div class="conteiner col-sm-8">
+    <div class="conteiner">
      
       <h1>Cadastro árbitros</h1>
       <hr>  
-      <div class="form-group" method="post" action="../routes/cidades.js">
+      <form method="post" action="../routes/cidades.js">
+
+      <div class="form-group col-sm-12">
         <label for="arbitro">nome :</label>
         <input name="nome" type="text" class="form-control" id="arbitro">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-12">
         <label for="rua">rua :</label>
         <input name="rua" type="text" class="form-control" id="rua">
       </div>
-      <div class="row">
+     
         <div class="form-group col-sm-4">
           <label for="numero">numero :</label>
-          <input name="numero" type="text" class="form-control" id="numero">
+          <input name="numero" type="number" class="form-control" id="numero">
         </div>
         <div class="form-group col-sm-8">
           <label for="bairro">bairro :</label>
           <input name="bairro" type="text" class="form-control" id="bairro">
         </div>
-      </div>
-      <div class="form-group cep">
+      <div class="form-group col-sm-4">
         <label for="cep">cep :</label>
         <input name="cep" type="number" class="form-control" id="cep">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-8">
         <label for="codigoCid">Cidade :</label>
         <select name="codCidade" class="form-control">
             <option value="cidade1">drop down list em node.js</option>
         </select>
       </div>
-      <hr>  
+     
       <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
+      </form>
     </div>
-  </div> 
+
   <footer class="conteiner-fluid">  
-      <div><p>Metricas de software</p></div>
+      <p>Metricas de software</p>
   </footer>
 </body>
 </html>
