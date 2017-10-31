@@ -1,7 +1,7 @@
 module.exports = {
   database: "sumula",
   username: "root",
-  password: "root",
+  password: "lichiking",
   params: {
     dialect: "mysql",
   }
