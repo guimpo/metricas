@@ -2,4 +2,5 @@ Tempo para implementação do banco de dados:
 22 min
 Tempo para implementar telas de cadastro e backend
 1:39 h
+6:00 h
 
