@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Cidades.associate = function (models) {
     Cidades.hasMany(models.Jogadores, { foreignKey: "codigoCid" })
+    Cidades.hasMany(models.Arbitros, { foreignKey: "codigoCid" })
   }
   return Cidades
 }
