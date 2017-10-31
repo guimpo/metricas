@@ -16,14 +16,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     golsContra: {
       type: DataTypes.INTEGER
-    },
-    }, {
+    }
+  }, {
       tableName: "Times"
     })
 
-    Times.associate = function(models) {
-      Times.hasOne(models.Sumulas)
-      Times.hasOne(models.Jogadores)
-    }
-    return Times;
+  Times.associate = function (models) {
+    Times.hasMany(models.Jogadores, {foreignKey: "codigoTime"})
+  }
+  return Times
 }
