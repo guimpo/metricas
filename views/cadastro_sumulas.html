@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Cadastro súmulas</title>
+  <style type="text/css">
+    .conteiner {
+      width: 20%;
+
+      margin: 10% 35%;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="conteiner">
+    <h2>Cadastro súmulas</h2>
+    <form method="post" >
+      <div class="form-group">
+        <label for="arbitro_id">árbitro:</label>
+        <input name="arbitro" type="number" class="form-control" id="arbitro_id">
+      </div>
+      <div class="form-group">
+        <label for="time1">time 1 :</label>
+        <input name="time1" type="number" class="form-control" id="time1">
+      </div>
+      <div class="form-group">
+        <label for="time1_gols">gols Time 1 :</label>
+        <input name="goltime1" type="number" class="form-control" id="time1_gols">
+      </div>
+      <div class="form-group">
+        <label for="time2">time 2 :</label>
+        <input name="time2" type="number" class="form-control" id="time2">
+      </div>
+      <div class="form-group">
+        <label for="time2_gols">gols time 2 :</label>
+        <input name="golTime2" type="number" class="form-control" id="time2_gols">
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>

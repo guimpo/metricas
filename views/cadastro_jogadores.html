@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Cadastro jogadores</title>
+  <style type="text/css">
+    .conteiner {
+      width: 30%;
+
+      margin: 2% 35% 10%;
+    }
+    .btn{
+      margin-top: 5%;
+    }
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      position: relative;
+      bottom: -400px;
+      
+    }
+    p{
+      position: relative;
+      left: -15%;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar navbar-inverse"></header>
+  <div class="conteiner">
+    <h2>Cadastro jogadores</h2>
+    <hr>
+    <form>
+      <div class="form-group col-sm-10">
+        <label for="jogador">nome :</label>
+        <input name="nome" type="text" class="form-control" id="jogador">
+      </div>
+      <div class="form-group col-sm-10">
+        <label for="rua">rua :</label>
+        <input name="rua" type="text" class="form-control" id="rua">
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="numero">numero :</label>
+        <input name="numero" type="number" class="form-control" id="numero">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="bairro">bairro :</label>
+        <input name="bairro" type="text" class="form-control" id="bairro">
+      </div>
+      <div class="form-group col-sm-4">
+        <label for="cep">cep :</label>
+        <input name="cep" type="text" class="form-control" id="cep">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="codigoCid">cidade :</label>
+        <input name="codigoCid" type="number" class="form-control" id="codigoCid">
+      </div>
+      <div class="form-group col-sm-10">
+        <label for="codigoTime">time :</label>
+        <input name="codigoTime" type="number" class="form-control" id="codigoTime">
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
+    </form>
+  </div>
+  <footer class="conteiner-fluid">
+    <p>Metricas de software</p>
+  </footer>
+</body>
+</html>
