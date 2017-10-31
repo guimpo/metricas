@@ -10,21 +10,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     golTime2: {
       type: DataTypes.INTEGER
-    },
-    }, {
+    }
+  }, {
       tableName: "Sumulas"
     })
 
-    Sumulas.associate = function(models) {
-      Sumulas.belongsTo(models.Times, {
-        as: "visitante",
-        foreignKey:"visitante"
-      })
-      Sumulas.belongsTo(models.Times, {
-        as: "mandante",
-        foreignKey:"mandante"
-      })
-      Sumulas.belongsTo(models.Arbitros)
-    }
-    return Times;
+  Sumulas.associate = function (models) {
+    Sumulas.belongsTo(models.Arbitros, { foreignKey: "codigoArbitro" })
+    Sumulas.belongsTo(models.Times, { foreignKey: "codTime1" })
+    Sumulas.belongsTo(models.Times, { foreignKey: "codTime2" })
+  }
+  return Sumulas;
 }
