@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Cadastro cidades</title>
+</head>
+<body>
+  <h1>Cadastro cidades</h1>
+  <div style: "width: 80%; heigth: 100%;">
+    <form action="http://localhost:3000/Cidades" method="POST">
+      <div class="form-group">
+        <label for="nome">nome :</label>
+        <input name="nome" type="text" class="form-control" id="nome">
+      </div>
+      <div class="form-group">
+        <label for="estado">estado :</label>
+        <input name="estado" type="text" class="form-control" id="estado">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div> 
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Cidades",
+        success: function (data) {
+          console.log('success', data);
+        }
+      });
+    });
+</script>  
+</html>
