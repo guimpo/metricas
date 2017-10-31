@@ -1,6 +1,5 @@
 var express = require("express")
 var consign = require("consign")
-
 var PORT = 3000
 var app = express()
 
@@ -11,3 +10,5 @@ consign()
   .then("routes")
   .then("libs/boot.js")
   .into(app)
+
+app.use(express.static('public'))
