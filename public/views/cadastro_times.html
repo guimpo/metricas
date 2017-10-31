@@ -10,10 +10,9 @@
 <body>
   <h1>Cadastro times</h1>
   <div style: "width: 80%; heigth: 100%;">
-    <form>
       <div class="form-group">
         <label for="time">nome :</label>
-        <input name="nome" type="text" class="form-control" id="time">
+        <input name="nome" type="text" class="form-control" id="nome">
       </div>
       <div class="form-group">
         <label for="pontos">pontos :</label>
@@ -27,8 +26,52 @@
         <label for="golsContra">golsContra :</label>
         <input name="golsContra" type="number" class="form-control" id="golsContra">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+      <button type="submit" class="btn btn-default" id="cadastrar-btn">Submit</button>
   </div>
 </body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+  
+  $(function () {
+    $.ajax({
+      type: 'GET',
+      url: "http://localhost:3000/Times",
+      success: function (data) {
+        console.log('success', data);
+      },
+      error: function () {
+        console.log("Erro T.T")
+      }
+    });
+  });
+
+  $('#cadastrar-btn').on('click', function () {
+    var nome = $('#nome').val();
+    var pontos = parseInt($('#pontos').val());
+    var golsPro = parseInt($('#golsPro').val());
+    var golsContra = parseInt($('#golsContra').val());
+
+    var dados = JSON.stringify(
+      { nome: nome,
+        pontos: pontos,
+        golsPro: golsPro,
+        golsContra: golsContra }
+    );
+
+    $.ajax({
+      url: '/Times',
+      type: 'POST',
+      dataType: 'json',
+      contentType: "application/json; charset=utf-8",
+      data: dados,
+      success: function () {
+        console.log(dados);
+      },
+      error: function () {
+        console.log('erro');
+      }
+    });
+  });
+
+</script>
 </html>
