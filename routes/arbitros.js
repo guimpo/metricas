@@ -1,11 +1,10 @@
 module.exports = app => {
   var Arbitros = app.db.models.Arbitros
-  var Cidades = app.db.models.Cidades
     
   app.route("/Arbitros")
       .get((req, res) => {
         // "/Arbitros": List Arbitros
-        Arbitros.findAll({ include: [Cidades]})
+        Arbitros.findAll({ include: [{ all: true }] })
           .then(result => res.json(result))
           .catch(error => {
             res.status(412).json({msg: error.message})
