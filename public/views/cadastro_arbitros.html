@@ -31,12 +31,87 @@
         <label for="cep">cep :</label>
         <input name="cep" type="text" class="form-control" id="cep">
       </div>
-      <div class="form-group">
+      <div class="form-group" style="display: none">
         <label for="codigoCid">codigoCid :</label>
         <input name="codigoCid" type="number" class="form-control" id="codigoCid">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <div>
+        <select id="combo-cidades">
+          <option value=""></option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default" id="cadastrar-btn">Submit</button>
     </form>
   </div>
 </body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+  // Criar options no select
+  var criarOptions = function(data) {
+    var comboCidades = $('#combo-cidades');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].nome;
+      comboCidades.append(option);
+    }
+  }
+
+  // Recuperar nome e id de cidades
+  $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Cidades",
+        success: function (data) {
+          console.log('success', data);
+          criarOptions(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
+    });
+
+  // Inserir codigo em input não-visível
+  // to do
+
+  // Envio de json para backend
+  $('#cadastrar-btn').on('click', function () {
+    
+    var nome = $('#nome').val();
+    var rua = $('#rua').val();
+    var numero = parseInt($('#numero').val());
+    var bairro = $('#bairro').val();
+    var cep = $('#cep').val();
+    var codigoCid = parseInt($('#combo-cidades').find(":selected").text());
+    
+    var dados = JSON.stringify(
+      {
+        nome: nome,
+        rua: rua,
+        numero: numero,
+        bairro: bairro,
+        cep: cep,
+        codigoCid: codigoCid
+      }
+    );
+
+
+    $.ajax({
+      url: '/Arbitros',
+      type: 'POST',
+      dataType: 'json',
+      contentType: "application/json; charset=utf-8",
+      data: dados,
+      success: function (dados) {
+        console.log(dados);
+      },
+      error: function () {
+        console.log('erro');
+      }
+    });
+  });
+
+</script>
 </html>
