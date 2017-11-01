@@ -15,21 +15,19 @@
     .cep {
       width: 50%;
     }
-  
+    .btn {
+      margin-top: 10%;
+    }
     header {
       background-color: grey;
       height: 50px;
     }
     footer {
+      margin-top: 10%;
       background-color: #555;
       color: white;
       padding: 15px;
-      position: relative;
-      bottom: -600px;
-    }
-    footer div p {
-      position: relative;
-      left: -20%;
+      text-align: center;
     }
   </style>
 </head>
@@ -65,18 +63,21 @@
     <h2>Cadastro cidades</h2>
     <hr>
     <form>
-      <div class="form-group">
+      <div class="form-group col-sm-12">
         <label for="nome">nome :</label>
         <input name="nome" type="text" class="form-control" id="nome">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-12">
         <label for="estado">estado :</label>
         <input name="estado" type="text" class="form-control" id="estado">
       </div>
       <hr>  
       <button type="submit" class="btn btn-primary btn-lg pull-right" id="cadastrar-btn">Enviar</button>
     </form>
-  </div> 
+  </div>
+  <footer class="col-sm-12">
+    <p>METRICAS</p>
+  </footer> 
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
