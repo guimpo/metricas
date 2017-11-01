@@ -4,39 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="http://localhost:3000/views/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Cadastro árbitros</title>
+  <style type="text/css">
+    .conteiner {
+      width: 30%;
+      margin: 10% 35%;
+    }
+    footer {
+      margin-top: 5%;
+      background-color: grey;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    .btn {
+      margin-top: 5%;
+    }
+  </style>
 </head>
 <body>
-  <h1>Cadastro árbitros</h1>
-  <div style="width: 80%; heigth: 100%">
+  <header>
+  <nav class="nav navbar navbar-inverse">
+    <div class="conteiner-fluid">
+       
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span> 
+           </button>
+        <a class="navbar-brand" href="#">METRICASOFT</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav" id="myNavbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cadastro_cidades.html">Cidades</a></li>
+          <li><a href="cadastro_times.html">Times</a></li>
+          <li><a href="cadastro_jogadores.html">Jogadores</a></li>
+          <li><a href="cadastro_sumulas.html">Sumulas</a></li>
+          <li class="active"><a href="#">Arbitros</a></li>
+          <li><a href="cadastro_detalhe_sumula.html">Detalhes sumula</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </nav>
+</header>
+  <div class="conteiner">
+    <h2>Cadastro árbitros</h2>
     <form>
-      <div class="form-group">
+      <div class="form-group col-sm-12">
         <label for="arbitro">nome :</label>
         <input name="nome" type="text" class="form-control" id="arbitro">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-12">
         <label for="rua">rua :</label>
         <input name="rua" type="text" class="form-control" id="rua">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-4">
         <label for="numero">numero :</label>
         <input name="numero" type="text" class="form-control" id="numero">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-8">
         <label for="bairro">bairro :</label>
         <input name="bairro" type="text" class="form-control" id="bairro">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-4">
         <label for="cep">cep :</label>
         <input name="cep" type="text" class="form-control" id="cep">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-8">
         <label for="codigoCid">codigoCid :</label>
         <input name="codigoCid" type="number" class="form-control" id="codigoCid">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
     </form>
   </div>
+  <footer class="conteiner-fluid col-sm-12">
+    <p>METRICAS</p>
+  </footer>
 </body>
 </html>
