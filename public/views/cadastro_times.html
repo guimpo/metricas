@@ -8,11 +8,12 @@
   <title>Cadastro time</title>
   <style type="text/css">
     .conteiner {
-      width: 20%;
+      width: 30%;
 
       margin: 10% 35%;
     }
     footer {
+      margin-top: 6%;
       background-color: #555;
       color: white;
       padding: 15px;
@@ -20,35 +21,62 @@
       bottom: -50px;
       text-align: center;
     }
+    .btn {
+      margin-top: 5%;
+    }
   </style>
 </head>
 <body>
-  <header class="navbar navbar-inverse"> 
+  <header>
+  <nav class="nav navbar navbar-inverse">
+    <div class="conteiner-fluid">
+       
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span> 
+           </button>
+        <a class="navbar-brand" href="#">METRICASOFT</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav" id="myNavbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cadastro_cidades.html">Cidades</a></li>
+          <li class="active"><a href="#">Times</a></li>
+          <li><a href="cadastro_jogadores.html">Jogadores</a></li>
+          <li><a href="cadastro_sumulas.html">Sumulas</a></li>
+          <li><a href="cadastro_arbitros.html">Arbitros</a></li>
+          <li><a href="cadastro_detalhe_sumula.html">Detalhes sumula</a></li>
+        </ul>
+      </div>
       
-  </header>
+    </div>
+  </nav>
+</header>
   <div class="conteiner">
     <h1>Cadastro times</h1>
     <form>
-      <div class="form-group">
+      <div class="form-group col-sm-12">
         <label for="time">nome :</label>
         <input name="nome" type="text" class="form-control" id="nome">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-4">
         <label for="pontos">pontos :</label>
         <input name="pontos" type="number" class="form-control" id="pontos">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-4">
         <label for="golsPro">gols a favor :</label>
         <input name="golsPro" type="number" class="form-control" id="golsPro">
       </div>
-      <div class="form-group">
+      <div class="form-group col-sm-4">
         <label for="golsContra">gols contra :</label>
         <input name="golsContra" type="number" class="form-control" id="golsContra">
       </div>
       <button type="submit" class="btn btn-primary btn-lg pull-right" id="cadastrar-btn">Enviar</button>
     </form>
   </div>
-  <footer class="conteiner-fluid">  
+  <footer class="conteiner-fluid col-sm-12">  
       <p>Metricas de software</p>
   </footer>
 </body>
