@@ -4,12 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Cadastro time</title>
+  <style type="text/css">
+    .conteiner {
+      width: 20%;
+
+      margin: 10% 35%;
+    }
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      position: relative;
+      bottom: -50px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>Cadastro times</h1>
-  <div style: "width: 80%; heigth: 100%;">
+  <header class="navbar navbar-inverse"> 
+      
+  </header>
+  <div class="conteiner">
+    <h1>Cadastro times</h1>
+    <form>
       <div class="form-group">
         <label for="time">nome :</label>
         <input name="nome" type="text" class="form-control" id="nome">
@@ -19,22 +38,26 @@
         <input name="pontos" type="number" class="form-control" id="pontos">
       </div>
       <div class="form-group">
-        <label for="golsPro">golsPro :</label>
+        <label for="golsPro">gols a favor :</label>
         <input name="golsPro" type="number" class="form-control" id="golsPro">
       </div>
       <div class="form-group">
-        <label for="golsContra">golsContra :</label>
+        <label for="golsContra">gols contra :</label>
         <input name="golsContra" type="number" class="form-control" id="golsContra">
       </div>
-      <button type="submit" class="btn btn-default" id="cadastrar-btn">Submit</button>
+      <button type="submit" class="btn btn-primary btn-lg pull-right" id="cadastrar-btn">Enviar</button>
+    </form>
   </div>
+  <footer class="conteiner-fluid">  
+      <p>Metricas de software</p>
+  </footer>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
   
-  $(function () {
+  /*$(function () {
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: "http://localhost:3000/Times",
       success: function (data) {
         console.log('success', data);
@@ -43,7 +66,7 @@
         console.log("Erro T.T")
       }
     });
-  });
+  });*/
 
   $('#cadastrar-btn').on('click', function () {
     var nome = $('#nome').val();
