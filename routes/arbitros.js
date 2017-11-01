@@ -1,10 +1,11 @@
 module.exports = app => {
   var Arbitros = app.db.models.Arbitros
+  var Cidades = app.db.models.Cidades
     
   app.route("/Arbitros")
       .get((req, res) => {
         // "/Arbitros": List Arbitros
-        Arbitros.findAll({})
+        Arbitros.findAll({ include: [Cidades]})
           .then(result => res.json(result))
           .catch(error => {
             res.status(412).json({msg: error.message})
@@ -12,7 +13,7 @@ module.exports = app => {
       })
       .post((req, res) => {
         // "/Arbitros": Save new task
-        console.log(req.body);
+        console.log(req.body)
         Arbitros.create(req.body)
           .then(result => res.json(result))
           .catch(error => {
