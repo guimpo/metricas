@@ -4,6 +4,7 @@ Tempo para implementar telas de cadastro e backend
 1:39 h
 6:00 h
 3:00 h
+3:30 h
 
 para implementar um ponto por função minha equipe leva xx minutos
 na linguagem javascript
