@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     cep: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     }
     }, {
       tableName: "Jogadores"
