@@ -28,10 +28,10 @@
   </header>
   <div class="conteiner">
     <h1>Cadastro times</h1>
-    <form method="post">
+    <form>
       <div class="form-group">
         <label for="time">nome :</label>
-        <input name="nome" type="text" class="form-control" id="time">
+        <input name="nome" type="text" class="form-control" id="nome">
       </div>
       <div class="form-group">
         <label for="pontos">pontos :</label>
@@ -45,7 +45,7 @@
         <label for="golsContra">gols contra :</label>
         <input name="golsContra" type="number" class="form-control" id="golsContra">
       </div>
-      <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
+      <button type="submit" class="btn btn-primary btn-lg pull-right" id="cadastrar-btn">Enviar</button>
     </form>
   </div>
   <footer class="conteiner-fluid">  
@@ -55,9 +55,9 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
   
-  $(function () {
+  /*$(function () {
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: "http://localhost:3000/Times",
       success: function (data) {
         console.log('success', data);
@@ -66,7 +66,7 @@
         console.log("Erro T.T")
       }
     });
-  });
+  });*/
 
   $('#cadastrar-btn').on('click', function () {
     var nome = $('#nome').val();

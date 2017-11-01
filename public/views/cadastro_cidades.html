@@ -40,7 +40,7 @@
   <div class="conteiner">
     <h2>Cadastro cidades</h2>
     <hr>
-    <form method="post">
+    <form>
       <div class="form-group">
         <label for="nome">nome :</label>
         <input name="nome" type="text" class="form-control" id="nome">
@@ -58,7 +58,7 @@
 <script>
   $(function () {
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: "http://localhost:3000/Cidades",
       success: function (data) {
         console.log('success', data);
