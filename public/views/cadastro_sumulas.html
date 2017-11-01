@@ -4,54 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Cadastro súmulas</title>
+  <style type="text/css">
+    .conteiner {
+      width: 30%;
+
+      margin: 10% 35%;
+    }
+    .btn{
+      margin-top: 10%;
+    }
+  </style>
 </head>
 <body>
-  <h1>Cadastro súmulas</h1>
-  <div style: "width: 80%; heigth: 100%;">
+  
+  <div class="conteiner">
+    <h1>Cadastro súmulas</h1>
     <form>
       <div class="form-group">
-        <label for="arbitro_id">codigoArbitro :</label>
-        <input name="codigoArbitro" type="number" class="form-control" id="arbitro_id">
+        <label for="arbitro_id">Arbitro:</label>
+        <select class="form-control" id="arbitro"> 
+            <option value="arbitro">lista de arbitros</option>
+            <option>4</option>
+        </select>
+        
+        
       </div>
       <div class="form-group">
-          <label for="arbitro_nome">nomeArbitro :</label>
-          <input name="" type="text" class="form-control" id="arbitro_nome">
-        </div>
-      <div class="form-group">
-        <label for="time1">codTime1 :</label>
-        <input name="codTime1" type="number" class="form-control" id="time1">
+        <label for="time1">time 1:</label>
+        <select class="form-control" id="time1">  
+            <option>Lista de times</option>
+            <option>1</option>
+        </select>
       </div>
-      <div class="form-group">
-        <label for="time1_nome">nomeTime1 :</label>
-        <input name="nomeTime1" type="text" class="form-control" id="time1_nome">
+       <div class="form-group">
+        <label for="time2">time 2:</label>
+        <select class="form-control" id="time2">
+            <option>Lista de times</option>
+            <option>2</option>
+        </select>
       </div>
-      <div class="form-group">
-        <label for="time1_gols">golTime1 :</label>
+      <div class="form-group col-sm-5">
+        <label for="time1_gols">gols time 1:</label>
         <input name="golTime1" type="number" class="form-control" id="time1_gols">
       </div>
-      <div class="form-group">
-        <label for="time2">codTime2 :</label>
-        <input name="codTime2" type="number" class="form-control" id="time2">
-      </div>
-      <div class="form-group">
-        <label for="time2_nome">nomeTime2 :</label>
-        <input name="nomeTime2" type="text" class="form-control" id="time2_nome">
-      </div>
-      <div class="form-group">
-        <label for="time2_gols">golTime2 :</label>
+      
+      <div class="form-group col-sm-5">
+        <label for="time2_gols">gols time 2:</label>
         <input name="golTime2" type="number" class="form-control" id="time2_gols">
       </div>
       
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-primary btn-lg pull-right" id="cadastrar-btn">Enviar</button>
     </form>
   </div>
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
   
-  /*$(function () {
+  $(function () {
     $.ajax({
       type: 'POST',
       url: "http://localhost:3000/Times",
@@ -62,23 +73,25 @@
         console.log("Erro T.T")
       }
     });
-  });*/
+  });
 
   $('#cadastrar-btn').on('click', function () {
-    var nome = $('#nome').val();
-    var pontos = parseInt($('#pontos').val());
-    var golsPro = parseInt($('#golsPro').val());
-    var golsContra = parseInt($('#golsContra').val());
+    var arbitro = parseInt($('#arbitro').val());
+    var time1 = parseInt($('#time1').val());
+    var golsTime1 = parseInt($('#time1_gols').val());
+    var time2 = parseInt($('#time2').val());
+    var golsTime2 = parseInt($('#time2_gols').val());
 
     var dados = JSON.stringify(
-      { nome: nome,
-        pontos: pontos,
-        golsPro: golsPro,
-        golsContra: golsContra }
+      { CodigoArbitro: arbitro,
+        CodTime1: time1,
+        CodTime2: time2,
+        golTime1: golsTime1,
+        golTime2: golsTime2 }
     );
 
     $.ajax({
-      url: '/Times',
+      url: '/Sumulas',
       type: 'POST',
       dataType: 'json',
       contentType: "application/json; charset=utf-8",
