@@ -11,3 +11,11 @@ na linguagem javascript
 a equipe possui x integrantes.
 a implementação possui xx linha de código.
 
+Rodrigo rolim. Tempo que gastou:
+
+23:48-01:08 = 80 minutos
+14:00-18:00 = 240 minutos
+21:30-21:41 = 11 minutos
+23:25-00:40 = 75 minutos
+
+total = 406 minutos
