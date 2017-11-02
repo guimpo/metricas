@@ -57,13 +57,16 @@
     <hr>
     <form>
       <div class="form-group col-sm-12">
-        <label for="codigo_sumula_id">sumula:</label>
-        <input name="codigoSumula" type="text" class="form-control" id="codigo_sumula_id">
+        <label for="combo-sumulas">sumula:</label>
+        <select class="form-control" name="combo-sumulas" id="combo-sumulas"> 
+            <option value="0">Selecione a sumula</option>
+        </select>
       </div>
       <div class="form-group col-sm-12">
-        <label for="codigoJogador">jogador:</label>
-        <input name="codigoJogador" type="text" class="form-control" id="jogador">
-        <input name="codigoJogador" type="hidden" class="form-control" id="codigoJogador">
+        <label for="combo-jogadores">jogador:</label>
+       <select class="form-control" name="combo-jogadores" id="combo-jogadores">
+          <option value="0">Selecione o jogador</option>
+       </select>
       </div>
       <div class="form-group col-sm-12">
         <label for="qtdeGol">qt. de Gol :</label>
@@ -77,11 +80,101 @@
         <label for="cartaoVermelho">cartaoVermelho :</label>
         <input name="cartaoVermelho" type="number" class="form-control" id="cartaoVermelho">
       </div>
-      <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
+      <button type="submit" class="btn btn-primary btn-lg pull-right" id="cadastrar-btn">Enviar</button>
     </form>
   </div>
   <footer class="conteiner-fluid">
     <p>METRICAS</p>
   </footer>
 </body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+  // Criar options no select de sumulas
+  var criarOptionsSumulas = function(data) {
+    var comboSumulas = $('#combo-sumulas');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].codigo.toString();
+      comboSumulas.append(option);
+    }
+  }
+  // Criar options no select de jogadores
+  var criarOptionsJogadores = function(data) {
+    var comboJogadores = $('#combo-jogadores');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].nome;
+      comboJogadores.append(option);
+    }
+  }
+  // Recuperar id de Sumulas
+  $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Sumulas",
+        success: function (data) {
+          console.log('success', data);
+          criarOptionsSumulas(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
+    });
+// Recuperar nome e id de jogadores
+  $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Jogadores",
+        success: function (data) {
+          console.log('success', data);
+          criarOptionsJogadores(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
+    });
+
+  // Inserir codigo em input não-visível
+  // to do
+
+  // Envio de json para backend de cidades e times
+  $('#cadastrar-btn').on('click', function () {
+    
+    var qtdegol = parseInt($('#qtdeGol').val());
+    var cartaoAmarelo = parseInt($('#cartaoAmarelo').val());
+    var cartaoVermelho = parseInt($('#cartaoVermelho').val());
+    var codigoSumulas = parseInt($('#combo-sumulas').find(":selected").text());
+    var codJogador = parseInt($('#combo-jogadores').find(":selected").text());
+   
+    
+    var dados = JSON.stringify(
+      {
+        qtdegol: qtdegol,
+        cartaoAmarelo: cartaoAmarelo,
+        cartaoVermelho: cartaoVermelho,
+        codigoSumulas: codigoSumulas,
+        codJogador: codJogador,
+      }
+    );
+    $.ajax({
+      url: '/DetalheSumula',
+      type: 'POST',
+      dataType: 'json',
+      contentType: "application/json; charset=utf-8",
+      data: dados,
+      success: function() {
+        console.log(dados);
+      },
+      error: function() {
+        console.log('erro');
+      }
+    });
+  });
+</script>
 </html>
