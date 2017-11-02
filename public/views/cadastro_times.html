@@ -29,8 +29,7 @@
 <body>
   <header>
   <nav class="nav navbar navbar-inverse">
-    <div class="conteiner-fluid">
-       
+    <div class="conteiner-fluid">     
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
               <span class="icon-bar"></span>
@@ -49,8 +48,7 @@
           <li><a href="cadastro_arbitros.html">Arbitros</a></li>
           <li><a href="cadastro_detalhe_sumula.html">Detalhes sumula</a></li>
         </ul>
-      </div>
-      
+      </div>     
     </div>
   </nav>
 </header>
@@ -87,14 +85,12 @@
     var pontos = parseInt($('#pontos').val());
     var golsPro = parseInt($('#golsPro').val());
     var golsContra = parseInt($('#golsContra').val());
-
     var dados = JSON.stringify(
       { nome: nome,
         pontos: pontos,
         golsPro: golsPro,
         golsContra: golsContra }
     );
-
     $.ajax({
       url: '/Times',
       type: 'POST',
@@ -109,6 +105,5 @@
       }
     });
   });
-
 </script>
 </html>

@@ -47,8 +47,7 @@
           <li><a href="cadastro_arbitros.html">Arbitros</a></li>
           <li class="active"><a href="#">Detalhes sumula</a></li>
         </ul>
-      </div>
-      
+      </div>     
     </div>
   </nav>
 </header>
@@ -91,8 +90,7 @@
 <script>
   // Criar options no select de sumulas
   var criarOptionsSumulas = function(data) {
-    var comboSumulas = $('#combo-sumulas');
-    
+    var comboSumulas = $('#combo-sumulas'); 
     for (var i = 0; i < data.length; i++) {
       var option = document.createElement('option');
       option.value = data[i].codigo.toString();
@@ -103,7 +101,6 @@
   // Criar options no select de jogadores
   var criarOptionsJogadores = function(data) {
     var comboJogadores = $('#combo-jogadores');
-    
     for (var i = 0; i < data.length; i++) {
       var option = document.createElement('option');
       option.value = data[i].codigo.toString();
@@ -139,20 +136,15 @@
         }
       });
     });
-
   // Inserir codigo em input não-visível
   // to do
-
   // Envio de json para backend de cidades e times
   $('#cadastrar-btn').on('click', function () {
-    
     var qtdegol = parseInt($('#qtdeGol').val());
     var cartaoAmarelo = parseInt($('#cartaoAmarelo').val());
     var cartaoVermelho = parseInt($('#cartaoVermelho').val());
     var codigoSumulas = parseInt($('#combo-sumulas').find(":selected").text());
     var codJogador = parseInt($('#combo-jogadores').find(":selected").text());
-   
-    
     var dados = JSON.stringify(
       {
         qtdegol: qtdegol,
