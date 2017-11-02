@@ -57,7 +57,7 @@
     <form>
       <div class="form-group col-sm-12">
         <label for="jogador">nome:</label>
-        <input name="nome" type="text" class="form-control" id="jogador">
+        <input name="nome" type="text" class="form-control" id="nome">
       </div>
       <div class="form-group col-sm-12">
         <label for="rua">rua:</label>
@@ -77,17 +77,116 @@
       </div>
       <div class="form-group col-sm-8">
         <label for="codigoCid">cidade:</label>
-        <input name="codigoCid" type="number" class="form-control" id="codigoCid">
+        <select class="form-control" name="combo-cidades" id="combo-cidades">
+          <option value="0">selecione a cidade</option>
+        </select>
       </div>
       <div class="form-group col-sm-12">
-        <label for="codigoTime">time:</label>
-        <input name="codigoTime" type="number" class="form-control" id="codigoTime">
+        <label for="combo-time">time:</label>
+        <select class="form-control" name="combo-time" id="combo-times">
+          <option value="0">selecione o time</option>
+        </select>
       </div>
-      <button type="submit" class="btn btn-primary btn-lg pull-right">Enviar</button>
+      <button type="submit" class="btn btn-primary btn-lg pull-right" id="cadastrar-btn">Enviar</button>
     </form>
   </div>
   <footer class="col-sm-12">
     <p>METRICAS</p>
   </footer>
 </body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+  // Criar options no select de cidades
+  var criarOptionsCidades = function(data) {
+    var comboCidades = $('#combo-cidades');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].nome;
+      comboCidades.append(option);
+    }
+  }
+  // Criar options no select de times
+  var criarOptionsTimes = function(data) {
+    var comboTimes = $('#combo-times');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].nome;
+      comboTimes.append(option);
+    }
+  }
+  // Recuperar nome e id de cidades
+  $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Cidades",
+        success: function (data) {
+          console.log('success', data);
+          criarOptionsCidades(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
+    });
+// Recuperar nome e id de times
+  $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Times",
+        success: function (data) {
+          console.log('success', data);
+          criarOptionsTimes(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
+    });
+
+  // Inserir codigo em input não-visível
+  // to do
+
+  // Envio de json para backend de cidades e times
+  $('#cadastrar-btn').on('click', function () {
+    
+    var nome = $('#nome').val();
+    var rua = $('#rua').val();
+    var numero = parseInt($('#numero').val());
+    var bairro = $('#bairro').val();
+    var cep = $('#cep').val();
+    var codigoCid = parseInt($('#combo-cidades').find(":selected").text());
+    var time = parseInt($('#combo-times').find(":selected").text());
+    
+    var dados = JSON.stringify(
+      {
+        nome: nome,
+        rua: rua,
+        numero: numero,
+        bairro: bairro,
+        cep: cep,
+        codigoCid: codigoCid,
+        codigoTime: time
+      }
+    );
+
+
+    $.ajax({
+      url: '/Jogadores',
+      type: 'POST',
+      dataType: 'json',
+      contentType: "application/json; charset=utf-8",
+      data: dados,
+      success: function() {
+        console.log(dados);
+      },
+      error: function() {
+        console.log('erro');
+      }
+    });
+  });
+</script>
 </html>
