@@ -1,15 +1,15 @@
 ﻿Tempo para implementação do banco de dados:
 22 min
 Tempo para implementar telas de cadastro e backend
-1:39 h
-6:00 h
-3:00 h
-3:30 h
+1:39 h = 99 minutos
+6:00 h = 360 minutos
+3:00 h = 180 minutos
+3:30 h = 210 minutos
 
-para implementar um ponto por função minha equipe leva xx minutos
-na linguagem javascript
+para implementar um ponto por função minha equipe leva 1278 minutos
+nas linguagens javascript, html e css
 a equipe possui x integrantes.
-a implementação possui xx linha de código.
+a implementação possui 2501 linha de código.
 
 Rodrigo rolim. Tempo que gastou:
 
@@ -19,3 +19,6 @@ Rodrigo rolim. Tempo que gastou:
 23:25-00:40 = 75 minutos
 
 total = 406 minutos
+
+
+total dos dois = 1.255 minutos
