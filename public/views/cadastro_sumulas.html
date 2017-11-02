@@ -57,23 +57,22 @@
     <form>
       <div class="form-group col-sm-12">
         <label for="arbitro_id">Arbitro:</label>
-        <select class="form-control" id="arbitro"> 
+        <select class="form-control" name="combo-arbitros" id="combo-arbitros"> 
             <option value="arbitro">lista de arbitros</option>
-            <option>4</option>
         </select>
         
         
       </div>
       <div class="form-group  col-sm-12">
         <label for="time1">time 1:</label>
-        <select class="form-control" id="time1">  
+        <select class="form-control" name="combo-times" id="combo-times">  
             <option>Lista de times</option>
             <option>1</option>
         </select>
       </div>
        <div class="form-group  col-sm-12">
         <label for="time2">time 2:</label>
-        <select class="form-control" id="time2">
+        <select class="form-control" name="combo-times2" id="combo-times2">
             <option>Lista de times</option>
             <option>2</option>
         </select>
@@ -97,25 +96,87 @@
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
-  
+  // Criar options no select de times 1
+  var criarOptionsTimes = function(data) {
+    var comboTimes = $('#combo-times');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].nome;
+      comboTimes.append(option);
+    }
+  }
+  // Criar options no select de times 2
+  var criarOptionsTimes2 = function(data) {
+    var comboTimes = $('#combo-times2');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].nome;
+      comboTimes.append(option);
+    }
+  }
+  // Criar options no select de arbitros
+  var criarOptionsArbitros = function(data) {
+    var comboArbitros = $('#combo-arbitros');
+    
+    for (var i = 0; i < data.length; i++) {
+      var option = document.createElement('option');
+      option.value = data[i].codigo.toString();
+      option.text = data[i].nome;
+      comboArbitros.append(option);
+    }
+  }
+  // Recuperar nome e id de times
   $(function () {
-    $.ajax({
-      type: 'POST',
-      url: "http://localhost:3000/Times",
-      success: function (data) {
-        console.log('success', data);
-      },
-      error: function () {
-        console.log("Erro T.T")
-      }
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Times",
+        success: function (data) {
+          console.log('success', data);
+          criarOptionsTimes(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
     });
-  });
+   $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Times",
+        success: function (data) {
+          console.log('success', data);
+          criarOptionsTimes2(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
+    });
+// Recuperar nome e id de times
+  $(function () {
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/Arbitros",
+        success: function (data) {
+          console.log('success', data);
+          criarOptionsArbitros(data);
+        },
+        error: function () {
+          console.log("Erro T.T")
+        }
+      });
+    });
+
 
   $('#cadastrar-btn').on('click', function () {
-    var arbitro = parseInt($('#arbitro').val());
-    var time1 = parseInt($('#time1').val());
+    var arbitro = parseInt($('#arbitro').find(":selected").val());
+    var time1 = parseInt($('#time1').find(":selected").text());
     var golsTime1 = parseInt($('#time1_gols').val());
-    var time2 = parseInt($('#time2').val());
+    var time2 = parseInt($('#time2').find(":selected").text());
     var golsTime2 = parseInt($('#time2_gols').val());
 
     var dados = JSON.stringify(
